@@ -13,4 +13,11 @@ App.get('/usuarios', (req, res) => {
     res.json(usuarios)
 })
 
+App.get('/usuarios/:id', (req, res) => {
+    const usuario = usuarios.find(u => u.id === parseInt(req.params.id));
+    if (!usuario) return res.status(404).send('Usuario no encontrado');
+    res.json(usuario);
+  });
+
+
 App.listen(3000);
