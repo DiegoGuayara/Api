@@ -1,37 +1,7 @@
 import express from "express";
-const app = express()
-const port = 3000
 
-let usuarios = [
-    {id:1 , nombre: 'ana' , edad : 21},
-    {id:2 , nombre: 'laura', edad: 18}
-]
-app.get("/usuarios" , (req,res) =>{
-    res.json([usuarios])
-})
-app.get('/usuarios/:id',(req,res) =>{
-    const verificar = parseInt(req.params.id)
-    const verificar2 = usuarios.find(u => u.id === verificar)
-     return verificar2 ? res.json(verificar2) :  res.status(404).send('Usuario no encontrado')
+const App = express();
 
-})
-app.post('/usuarios',(req,res) =>{
-    const nuevoUsuario = req.body
-    nuevoUsuario.id = usuarios.length ? Math.max(usuarios.map(u => u.id)) + 1 : 1
-    usuarios.push(nuevoUsuario)
-    res.status(201).json(nuevoUsuario)
-})
-app.put('/usuarios/:id',(req,res) =>{
-    const nuevo = parseInt(req.params.id)
-    const cuerpo = req.body
-    let user = usuarios.find(u => u.id === nuevo)
-    if(user){
-        user.name = cuerpo.name
-        res.json(user)
-    }else{
-        res.status(404).send('Usuario no encontrado')
-    }
-})
+App.get("/", (req, res) => res.send("Hola como estan"));
 
-
-app.listen(port,() =>{console.log("escuchando en el puerto 3000")})
+App.listen(3000);
