@@ -13,6 +13,16 @@ let miembros = [
   { id: 2, nombre: "Diego Fernando Guayara" },
 ];
 
+let rutas = [
+    {ruta1:'/usuarios'},
+    {ruta2: '/usuarios/id (Aqui en id pone ya sea 1, 2 o 3)'},
+    {ruta3: '/miembros'}
+]
+
+app.get('', (req,res) => {
+    res.json(rutas)
+})
+
 app.get("/usuarios", (req, res) => {
   res.json(usuarios);
 });
