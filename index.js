@@ -7,6 +7,12 @@ let usuarios = [
     {id:1 , nombre: 'ana' , edad : 21},
     {id:2 , nombre: 'laura', edad: 18}
 ]
+
+let miembros = [
+    {id:1 , nombre:'Samuel Andres Marín'},
+    {id:2 , nombre:'Diego Fernando Guayara'}
+]
+
 app.get("/usuarios" , (req,res) =>{
     res.json(usuarios)
 })
@@ -31,5 +37,8 @@ app.put('/usuarios/:id',(req,res) =>{
     }else{
         res.status(404).send('Usuario no encontrado')
     }
+})
+app.get('/miembros', (req, res) => {
+    res.json(miembros)
 })
 app.listen(port,() =>{console.log("escuchando en el puerto 3000")})
