@@ -1,7 +1,9 @@
 import express from "express";
+import cors from "cors";
 const app = express();
 const port = 3000;
 app.use(express.json());
+app.use(cors());
 
 let usuarios = [
   { id: 1, nombre: "ana", edad: 21 },
@@ -14,14 +16,14 @@ let miembros = [
 ];
 
 let rutas = [
-    {ruta1:'/usuarios'},
-    {ruta2: '/usuarios/id (Aqui en id pone ya sea 1, 2 o 3)'},
-    {ruta3: '/miembros'}
-]
+  { ruta1: "/usuarios" },
+  { ruta2: "/usuarios/id (Aqui en id pone ya sea 1, 2 o 3)" },
+  { ruta3: "/miembros" },
+];
 
-app.get('', (req,res) => {
-    res.json(rutas)
-})
+app.get("", (req, res) => {
+  res.json(rutas);
+});
 
 app.get("/usuarios", (req, res) => {
   res.json(usuarios);
