@@ -4,11 +4,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());
-const corsOptions = {
-  origin: "https://localhost:5000",
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
+app.use(cors());
 app.use("/images", express.static("public/images"));
 
 let usuarios = [
