@@ -2,8 +2,10 @@ import express from "express";
 import cors from "cors";
 const app = express();
 const port = 3000;
+
 app.use(express.json());
 app.use(cors());
+app.use("/images", express.static("public/images"));
 
 let usuarios = [
   { id: 1, nombre: "ana", edad: 21 },
@@ -19,7 +21,7 @@ let rutas = [
   { ruta1: "/usuarios" },
   { ruta2: "/usuarios/id (Aqui en id pone ya sea 1, 2 o 3)" },
   { ruta3: "/miembros" },
-  { img1: "./images/descarga.png" },
+  { img1: "http://localhost:3000/images/descarga.png" },
 ];
 
 app.get("", (req, res) => {
