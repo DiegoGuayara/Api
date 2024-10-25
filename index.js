@@ -21,7 +21,7 @@ let rutas = [
   { ruta1: "/usuarios" },
   { ruta2: "/usuarios/id (Aqui en id pone ya sea 1, 2 o 3)" },
   { ruta3: "/miembros" },
-  { img1: "http://localhost:3000/images/descarga.png" },
+  { img1: "http://localhost:3000/public/images/descarga.png" },
 ];
 
 app.get("", (req, res) => {
